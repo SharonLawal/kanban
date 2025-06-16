@@ -1,0 +1,56 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-container">
+    <div class="modal-header border-0 pb-0">
+      <label class="modal-title fw-bold mb-3 heading-l">Edit Board</label>
+    </div>
+
+    <div class="modal-body py-0">
+      <form [formGroup]="editBoardForm" class="board-form">
+        <div class="form-group mb-3">
+          <label class="form-label fw-bold small text-muted mb-2">Board Name</label>
+          <input 
+            type="text" 
+            class="form-control form-control-lg" 
+            formControlName="name"
+            placeholder="e.g. Platform Launch"
+            required
+          >
+        </div>
+
+        <div class="columns-section">
+          <label class="form-label fw-bold small text-muted mb-2">Board Columns</label>
+          
+          <div formArrayName="columns" class="columns-list mb-3">
+            <div *ngFor="let column of columnsArray.controls; let i = index" class="column-item mb-2">
+              <div class="input-group">
+                <input 
+                  type="text" 
+                  class="form-control form-control-lg" 
+                  [formControlName]="i"
+                  [placeholder]="'Column ' + (i + 1)"
+                  required
+                >
+                <button class="btn btn-remove" type="button" (click)="removeColumn(i)">
+                  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.728 0L14.85 2.122L2.122 14.85L0 12.728L12.728 0Z" fill="#828FA3"/>
+                    <path d="M0 2.122L2.122 0L14.85 12.728L12.728 14.85L0 2.122Z" fill="#828FA3"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-add-column w-100 mb-3" (click)="addColumn()">
+            + Add New Column
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal-footer border-0 pt-0">
+      <button type="button" class="btn btn-primary w-100 py-2" (click)="saveChanges()">
+        Save Changes
+      </button>
+    </div>
+  </div>
+</div>

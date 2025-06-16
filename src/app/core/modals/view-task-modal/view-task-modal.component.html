@@ -1,0 +1,68 @@
+<div class="modal-container p-4">
+  <div class="d-flex justify-content-between align-items-start">
+    <label class="task-title heading-l">{{ data.task.title }}</label>
+    <div class="dropdown">
+      <button
+        class="btn btn-transparent p-0 dots-menu"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li>
+          <a class="dropdown-item body-l" (click)="editTask()">Edit Task</a>
+        </li>
+        <li>
+          <a class="dropdown-item body-l text-danger" (click)="deleteTask()"
+            >Delete Task</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="task-description mt-3 body-l">{{ data.task.description }}</p>
+
+  <div class="subtasks-section mt-4">
+    <label class="form-label body-m">
+      Subtasks ({{ completedSubtasksCount }} of {{ data.task.subtasks.length }})
+    </label>
+
+    <div
+      *ngFor="let subtask of data.task.subtasks; let i = index"
+      class="form-check rounded p-2 mb-2 d-flex gap-4"
+    >
+      <input
+        type="checkbox"
+        class=""
+        [checked]="subtask.isCompleted"
+        (change)="toggleSubtask(i)"
+        id="subtask-{{ i }}"
+      />
+      <label
+        class="form-check-label"
+        [class.text-decoration-line-through]="subtask.isCompleted"
+        [class.opacity-50]="subtask.isCompleted"
+        [attr.for]="'subtask-' + i"
+      >
+        {{ subtask.title }}
+      </label>
+    </div>
+  </div>
+
+  <div class="status-section mt-4">
+    <label for="status" class="form-label body-m">Current Status</label>
+    <select
+      class="form-select"
+      [(ngModel)]="selectedStatus"
+      (change)="onStatusChange(selectedStatus)"
+    >
+      <option *ngFor="let column of columns" [value]="column.id">
+        {{ column.name }}
+      </option>
+    </select>
+  </div>
+</div>

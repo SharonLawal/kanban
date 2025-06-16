@@ -1,0 +1,70 @@
+<div
+  class="sidebar d-flex flex-column flex-grow-1 h-10"
+  *ngIf="!isSidebarHidden"
+>
+  <div class="board">
+    <div class="heading-s board-title pt-4 text-uppercase fw-bold">
+      All Boards ({{ boards.length }})
+    </div>
+
+    <div class="heading-m board-list">
+      <div
+        *ngFor="let board of boards"
+        class="board-item"
+        [class.active]="isBoardActive(board.id)"
+        (click)="selectBoard(board.id)"
+      >
+        <img
+          [src]="
+            isBoardActive(board.id)
+              ? 'assets/board-icon-active.svg'
+              : 'assets/board-icon.svg'
+          "
+          class="px-2"
+        />
+        {{ board.name }}
+      </div>
+    </div>
+
+    <div class="heading-m add-button" (click)="openCreateBoardDialog()">
+      <img
+          src="assets/board-icon-purple.png"
+          class="px-2"
+        />
+      + Create New Board
+    </div>
+  </div>
+
+  <div class="theme-toggle-section mt-auto px-4 pb-3">
+    <div class="form-check form-switch d-flex align-items-center gap-2">
+      <img src="assets/light.png" alt="Light Mode" />
+      <div class="justify-content-center">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="themeSwitch"
+          [checked]="isDarkTheme"
+          (change)="toggleTheme()"
+        />
+      </div>
+      <img src="assets/dark.png" alt="Dark Mode" />
+    </div>
+
+    <div
+      class="hide-sidebar heading-m mt-3 d-flex align-items-center"
+      [class.hidden]="isSidebarHidden"
+      (click)="isSidebarHidden = true"
+    >
+      <img src="assets/eye-slash.png" />
+      <label>Hide Sidebar</label>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="isSidebarHidden"
+  class="show-sidebar-btn visible-hidden"
+  (click)="isSidebarHidden = false"
+>
+  <img src="assets/eye.png" />
+</div>

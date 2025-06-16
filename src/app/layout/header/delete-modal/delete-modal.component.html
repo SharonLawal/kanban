@@ -1,0 +1,31 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-container">
+    <div class="modal-header border-0 pb-0">
+      <h2 class="modal-title text-danger fw-bold">Delete this board?</h2>
+    </div>
+
+    <div class="modal-body py-3">
+      <p class="mb-4">
+        Are you sure you want to delete the '{{ boardName }}' board? This action
+        will remove all columns and tasks and cannot be reversed.
+      </p>
+    </div>
+
+    <div class="modal-footer border-0 d-flex gap-3">
+      <button
+        type="button"
+        class="btn btn-danger flex-grow-1 py-2"
+        (click)="confirmDelete()"
+      >
+        Delete
+      </button>
+      <button
+        type="button"
+        class="btn btn-cancel flex-grow-1 py-2"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

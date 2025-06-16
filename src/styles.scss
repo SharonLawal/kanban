@@ -1,1 +1,136 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+:root {
+  --bg-color: var(--light-grey-light-bg);
+  --bg: var(--white);
+  --text-color: var(--black);
+  --sidebar-bg: var(--white);
+  --sidebar-text: var(--black);
+  --board-item-active-bg: var(--main-purple);
+  --board-item-active-color: var(--white);
+  --form-switch-bg: var(--light-grey-light-bg);
+  --lines: var(--lines-light);
+  --h1: var(--black);
+  --modal-heading: var(--black);
+  --modal-text: var(--medium-grey);
+  --input-bg: var(--light-grey-light-bg);
+  --tasks-bg: var(--white);
+
+  --black: #000112;
+  --very-dark-grey-dark-bg: #20212c;
+  --dark-grey: #2b2c37;
+  --lines-dark: #3e3f4e;
+  --medium-grey: #828fa3;
+  --lines-light: #e4ebfa;
+  --light-grey-light-bg: #f4f7fd;
+  --white: #ffffff;
+  --main-purple: #635fc7;
+  --main-purple-hover: #a8a4ff;
+  --red: #ea5555;
+  --red-hover: #ff9898;
+
+  --heading-XL-font-family: "Plus Jakarta Sans", Helvetica;
+  --heading-XL-font-weight: 700;
+  --heading-XL-font-size: 24px;
+  --heading-XL-letter-spacing: 0px;
+  --heading-XL-line-height: normal;
+  --heading-XL-font-style: normal;
+
+  --heading-l-font-family: "Plus Jakarta Sans", Helvetica;
+  --heading-l-font-weight: 700;
+  --heading-l-font-size: 18px;
+
+  --heading-m-font-family: "Plus Jakarta Sans", Helvetica;
+  --heading-m-font-weight: 700;
+  --heading-m-font-size: 15px;
+
+  --heading-s-font-family: "Plus Jakarta Sans", Helvetica;
+  --heading-s-font-weight: 700;
+  --heading-s-font-size: 12px;
+  --heading-s-letter-spacing: 2.4px;
+
+  --body-l-font-family: "Plus Jakarta Sans", Helvetica;
+  --body-l-font-weight: 500;
+  --body-l-font-size: 13px;
+  --body-l-line-height: 23px;
+
+  --body-m-font-family: "Plus Jakarta Sans", Helvetica;
+  --body-m-font-weight: 700;
+  --body-m-font-size: 12px;
+
+  box-sizing: border-box;
+}
+
+body.dark-theme {
+  --bg-color: var(--very-dark-grey-dark-bg);
+  --bg: var(--black);
+  --text-color: var(--white);
+  --sidebar-bg: var(--dark-grey);
+  --sidebar-text: var(--medium-grey);
+  --board-item-active-bg: var(--main-purple);
+  --board-item-active-color: var(--white);
+  --form-switch-bg: var(--very-dark-grey-dark-bg);
+  --lines: var(--lines-dark);
+  --h1: var(--white);
+  --modal-heading: var(--white);
+  --modal-text: var(--white);
+  --input-bg: var(--very-dark-grey-dark-bg);
+  --tasks-bg: var(--dark-grey);
+}
+
+.heading-xl {
+  font-family: var(--heading-XL-font-family);
+  font-weight: var(--heading-XL-font-weight);
+  font-size: var(--heading-XL-font-size);
+  letter-spacing: var(--heading-XL-letter-spacing);
+  line-height: var(--heading-XL-line-height);
+  font-style: var(--heading-XL-font-style);
+}
+
+.heading-l {
+  font-family: var(--heading-l-font-family);
+  font-weight: var(--heading-l-font-weight);
+  font-size: var(--heading-l-font-size);
+}
+
+.heading-m {
+  font-family: var(--heading-m-font-family);
+  font-weight: var(--heading-m-font-weight);
+  font-size: var(--heading-m-font-size);
+}
+
+.heading-s {
+  font-family: var(--heading-s-font-family);
+  font-weight: var(--heading-s-font-weight);
+  font-size: var(--heading-s-font-size);
+  letter-spacing: var(--heading-s-letter-spacing);
+}
+
+.body-l {
+  font-family: var(--body-l-font-family);
+  font-weight: var(--body-l-font-weight);
+  font-size: var(--body-l-font-size);
+  line-height: var(--body-l-line-height);
+}
+
+.body-m {
+  font-family: var(--body-m-font-family);
+  font-weight: var(--body-m-font-weight);
+  font-size: var(--body-m-font-size);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

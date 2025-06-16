@@ -1,0 +1,68 @@
+.modal-container {
+  background-color: var(--tasks-bg);
+  color: var(--medium-grey);
+  border-radius: 8px;
+  max-width: 480px;
+  width: 90%;
+  box-sizing: unset;
+  overflow-y: hidden;
+
+  .task-title {
+    color: var(--h1);
+  }
+
+  .task-description {
+    color: var(--medium-grey);
+  }
+
+  .subtasks-section {
+    .form-check {
+      border: none;
+      background-color: var(--input-bg);
+    }
+
+    .form-check-label {
+      font-size: 15px;
+      color: var(--h1);
+    }
+
+    input[type="checkbox"] {
+      accent-color: var(--main-purple);
+    }
+  }
+
+  .status-section {
+    select.form-select {
+      background-color: transparent;
+      border: 1px solid var(--lines);
+      color: var(--text-color);
+    }
+
+    option {
+      background-color: var(--bg-color);
+    }
+  }
+
+  .dots-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .dots-menu .dot {
+    width: 3px;
+    height: 3px;
+    background-color: var(--medium-grey);
+    border-radius: 50%;
+  }
+
+  .dropdown-menu {
+    background-color: var(--tasks-bg);
+  }
+
+  .dropdown-item {
+    color: var(--medium-grey);
+  }
+}

@@ -1,0 +1,88 @@
+<div class="modal-container">
+  <h2 class="modal-title heading-l">Add New Task</h2>
+
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <label class="form-label body-m">Title</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        formControlName="title"
+        placeholder="e.g. Take coffee break"
+      >
+      <mat-error *ngIf="taskForm.get('title')?.hasError('required')">
+        Title is required
+      </mat-error>
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="form-label body-m">Description</label>
+      <textarea
+        class="form-control"
+        formControlName="description"
+        rows="3"
+        placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little."
+      ></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="form-label body-m">Subtasks</label>
+      
+      <div formArrayName="subtasks">
+        <div 
+          *ngFor="let subtask of subtasks.controls; let i = index" 
+          class="d-flex align-items-center mb-2"
+        >
+          <div [formGroupName]="i" class="w-100">
+            <input 
+              type="text" 
+              class="form-control me-2" 
+              formControlName="title"
+              placeholder="e.g. Make coffee"
+            >
+            <mat-error *ngIf="subtasks.at(i).get('title')?.hasError('required')">
+              Can't be empty
+            </mat-error>
+          </div>
+          <button 
+            type="button"
+            class="btn btn-icon"
+            (click)="removeSubtask(i)"
+          >
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <button 
+        type="button"
+        class="btn btn-secondary w-100"
+        (click)="addSubtask()"
+      >
+        + Add New Subtask
+      </button>
+    </div>
+
+    <div class="form-group mb-4">
+      <label class="form-label body-m">Status</label>
+      <select 
+        class="form-select"
+        formControlName="status"
+      >
+        <option *ngFor="let status of statusOptions" [value]="status">
+          {{ status }}
+        </option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary w-100"
+      [disabled]="taskForm.invalid"
+    >
+      Create Task
+    </button> 
+  </form>
+</div>

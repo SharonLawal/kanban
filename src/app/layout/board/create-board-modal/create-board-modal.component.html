@@ -1,0 +1,61 @@
+<div class="modal-card">
+  <h2 class="modal-title heading-l">Add New Board</h2>
+
+  <form [formGroup]="boardForm" class="board-form">
+    <div class="form-group">
+      <label for="boardName" class="body-m">Board Name</label>
+      <input
+        type="text"
+        id="boardName"
+        class="form-control body-l"
+        formControlName="name"
+        placeholder="e.g. Web Design"
+        required
+      />
+      <mat-error>This field is required</mat-error>
+    </div>
+
+    <div class="columns-section">
+      <label class="body-m">Board Columns</label>
+
+      <div formArrayName="columns" class="columns-list">
+        <div
+          *ngFor="let column of columns.controls; let i = index"
+          class="column-item"
+        >
+          <div class="form-group d-flex flex-row">
+            <input
+              type="text"
+              class="form-control body-l"
+              [formControlName]="i"
+              [placeholder]="'Column ' + (i + 1)"
+              required
+            />
+            <div class="border-0">
+              <button
+                class="btn btn-remove"
+                type="button"
+                (click)="removeColumn(i)"
+              >
+                <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="#828FA3" fill-rule="evenodd">
+                    <path d="m12.728 0 2.122 2.122L2.122 14.85 0 12.728z" />
+                    <path d="M0 2.122 2.122 0 14.85 12.728l-2.122 2.122z" />
+                  </g>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-add-column" (click)="addColumn()">
+        + Add New Column
+      </button>
+    </div>
+  </form>
+
+  <button type="button" class="btn btn-primary" (click)="onSubmit()">
+    Create New Board
+  </button>
+</div>

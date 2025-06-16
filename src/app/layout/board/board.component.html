@@ -1,0 +1,74 @@
+<div class="board-view d-flex flex-column h-100">
+  <div
+    *ngIf="board?.columns?.length === 0"
+    class="empty-state d-flex flex-column justify-content-center align-items-center h-100"
+  >
+    <p class="empty-text mb-4 heading-l">
+      This board is empty. Create a new column to get started.
+    </p>
+    <button (click)="addColumn()" class="empty-btn heading-m">
+      + Add New Column
+    </button>
+  </div>
+
+  <div
+    *ngIf="board && board.columns && board.columns.length > 0"
+    class="board-container flex-grow-1"
+  >
+    <div
+      cdkDropList
+      class="columns-container d-flex"
+      (cdkDropListDropped)="onColumnDrop($event)"
+    >
+      <div
+        class="column"
+        *ngFor="let column of board.columns; let i = index"
+        cdkDrag
+      >
+        <div class="column-header d-flex align-items-center mb-3">
+          <div
+            class="color-indicator"
+            [style.background-color]="getColumnColor(i)"
+          ></div>
+          <h3 class="column-title mb-0">
+            {{ column.name }} ({{ column.tasks.length }})
+          </h3>
+        </div>
+
+        <div
+          class="tasks-container"
+          cdkDropList
+          [id]="'taskList-' + i"
+          [cdkDropListData]="column.tasks"
+          [cdkDropListConnectedTo]="connectedDropLists"
+          (cdkDropListDropped)="onTaskDrop($event, board!.id)"
+        >
+          <div
+            class="task-card mb-3"
+            *ngFor="let task of column.tasks"
+            cdkDrag
+            (click)="openTaskModal(task, column, board)"
+          >
+            <h4 class="task-title mb-2">{{ task.title }}</h4>
+            <div
+              class="subtasks-progress mb-2"
+              *ngIf="task.subtasks.length > 0"
+            >
+              {{ getCompletedSubtasks(task) }} of
+              {{ task.subtasks.length }} subtasks
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="new-column-container">
+        <button
+          (click)="addColumn()"
+          class="new-column-btn heading-xl"
+        >
+          + New Column
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

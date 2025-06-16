@@ -1,0 +1,100 @@
+.modal-container {
+  padding: 2rem;
+  width: 480px;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: var(--bg-color);
+
+  .modal-title {
+    margin-bottom: 1.5rem;
+    color: var(--h1);
+  }
+
+  .form-label {
+    color: var(--medium-grey);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .form-control {
+    background-color: var(--bg-color);
+    border-color: var(--lines);
+    color: var(--h1);
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+      border-color: var(--lines);
+    }
+  }
+
+  .form-select {
+    background-color: var(--bg-color);
+    border-color: var(--lines);
+    color: var(--h1);
+    cursor: pointer;
+  }
+
+  option {
+    background-color: var(--bg-color);
+  }
+
+  .btn {
+    padding: 0.75rem;
+    border-radius: 20px;
+    font-weight: 500;
+
+    &-primary {
+      background-color: var(--main-purple-hover);
+      border: none;
+      color: var(--white);
+
+      &:hover {
+        background-color: var(--main-purple);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+      }
+    }
+
+     &-secondary {
+      background-color: var(--main-purple-hover);
+      color: var(--main-purple);
+      border: none;
+
+      :host-context(.dark-theme) & {
+        background-color: var(--white);
+        color: var(--main-purple);
+        border: none;
+      }
+    }
+
+    &-color {
+      background-color: var(--bg-tertiary);
+      color: var(--primary-color);
+      border: none;
+
+      &:hover {
+        background-color: var(--bg-color);
+      }
+    }
+
+    &-icon {
+      padding: 0.5rem;
+      color: var(--medium-grey);
+
+      &:hover {
+        color: var(--h1);
+      }
+    }
+  }
+
+  mat-error {
+    font-size: 0.75rem;
+    color: var(--red);
+    margin-top: 0.25rem;
+  }
+}

@@ -1,0 +1,78 @@
+:host {
+  background-color: var(--sidebar-bg);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header {
+  border-bottom: var(--lines);
+  height: 97px;
+}
+  
+h1 {
+  color: var(--h1);
+  padding-left: 32px;
+}
+
+.logo img {
+  padding-right: 32px;
+  border-right: 1px solid var(--lines);
+  height: 24px;
+}
+
+.dots-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.dots-menu .dot {
+  width: 3px;
+  height: 3px;
+  background-color: var(--medium-grey);
+  border-radius: 50%;
+}
+
+.btn {
+  background-color: var(--main-purple);
+  border: none;
+  border-radius: 24px;
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--main-purple-hover);
+    color: var(--white);
+  }
+}
+
+.board-options-dropdown {
+  position: absolute;
+  top: 80px;
+  right: 40px;
+  width: 192px;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 16px;
+  z-index: 100;
+
+  .option {
+    color: var(--medium-grey);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .option-delete {
+    color: var(--red);
+
+    &:hover {
+      color: var(--red-hover);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="modal-container heading-l">
+  <label class="heading-l">Delete this task?</label>
+  <p class="body-l">
+    Are you sure you want to delete the
+    <strong>{{ data.task.title }}</strong> task and its subtasks? This action
+    cannot be reversed.
+  </p>
+  <div class="d-flex justify-content-center gap-4">
+    <button class="button button-danger me-2 body-l" (click)="confirmDelete()">
+      Delete
+    </button>
+    <button class="button button-cancel body-l" (click)="cancel()">Cancel</button>
+  </div>
+</div>

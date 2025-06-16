@@ -1,0 +1,36 @@
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 1000;
+  }
+  
+  .content-container {
+    flex: 1;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+    .fixed-sidebar {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: auto;
+    }
+    
+    .board-container {
+      flex: 1;
+      height: calc(100vh - 80px);
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <label class="modal-title heading-l">Edit Task</label>
+  </div>
+
+  <div class="modal-body">
+    <div class="form-group mb-3">
+      <label class="form-label body-m">Title</label>
+      <input
+        type="text"
+        [(ngModel)]="data.task.title"
+        class="form-control"
+        placeholder="e.g. Add authentication endpoints"
+      />
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="form-label body-m">Description</label>
+      <textarea
+        [(ngModel)]="data.task.description"
+        class="form-control"
+        rows="3"
+        placeholder="e.g. It's always good to take a break. This 15 minute break will recharge the batteries a little."
+      ></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="form-label body-m">Subtasks</label>
+      <div
+        *ngFor="let subtask of data.task.subtasks; let i = index"
+        class="d-flex align-items-center mb-2"
+      >
+        <input
+          type="text"
+          [(ngModel)]="subtask.title"
+          class="form-control me-2"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <button class="btn btn-icon" (click)="removeSubtask(i)">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <button class="btn btn-secondary w-100" (click)="addSubtask()">
+        + Add New Subtask
+      </button>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label body-m">Status</label>
+      <select class="form-select" [(ngModel)]="selectedStatus">
+        <option *ngFor="let column of columns" [value]="column.id">
+          {{ column.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-primary w-100" (click)="saveChanges()">
+        Save Changes
+      </button>
+    </div>
+  </div>
+</div>
