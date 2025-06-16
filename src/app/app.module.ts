@@ -16,9 +16,9 @@ import { HeaderComponent } from './layout/header/header.component';
 import { EditTaskModalComponent } from './core/modals/edit-task-modal/edit-task-modal.component';
 import { DeleteTaskModalComponent } from './core/modals/delete-task-modal/delete-task-modal.component';
 import { ViewTaskModalComponent } from './core/modals/view-task-modal/view-task-modal.component';
-import { CreateBoardModalComponent } from './core/modals/create-board-modal/create-board-modal.component';
-import { DeleteModalComponent } from './core/modals/delete-modal/delete-modal.component';
-import { EditModalComponent } from './core/modals/edit-modal/edit-modal.component';
+import { CreateBoardModalComponent } from './layout/board/create-board-modal/create-board-modal.component';
+import { DeleteModalComponent } from './layout/header/delete-modal/delete-modal.component';
+import { EditModalComponent } from './layout/header/edit-modal/edit-modal.component';
 import { BoardComponent } from './layout/board/board.component';
 import { AddNewTaskModalComponent } from './core/modals/add-new-task-modal/add-new-task-modal.component';
 

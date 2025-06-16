@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BoardService } from '../../services/board.service';
+import { BoardService } from '../../../core/services/board.service';
 
 @Component({
   selector: 'app-create-board-modal',

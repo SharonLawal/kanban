@@ -13,14 +13,14 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
-import { EditModalComponent } from 'src/app/core/modals/edit-modal/edit-modal.component';
-import { ViewTaskModalComponent } from 'src/app/core/modals/view-task-modal/view-task-modal.component';
-import { Board } from 'src/app/core/models/board.model';
-import { Column } from 'src/app/core/models/column.model';
-import { Task } from 'src/app/core/models/task.model';
-import { BoardService } from 'src/app/core/services/board.service';
-import { DeleteTaskModalComponent } from 'src/app/core/modals/delete-task-modal/delete-task-modal.component';
-import { EditTaskModalComponent } from 'src/app/core/modals/edit-task-modal/edit-task-modal.component';
+import { EditModalComponent } from '../../layout/header/edit-modal/edit-modal.component';
+import { ViewTaskModalComponent } from '../../core/modals/view-task-modal/view-task-modal.component';
+import { Board } from '../../core/models/board.model';
+import { Column } from '../../core/models/column.model';
+import { Task } from '../../core/models/task.model';
+import { BoardService } from '../../core/services/board.service';
+import { DeleteTaskModalComponent } from '../../core/modals/delete-task-modal/delete-task-modal.component';
+import { EditTaskModalComponent } from '../../core/modals/edit-task-modal/edit-task-modal.component';
 
 @Component({
   selector: 'app-board',

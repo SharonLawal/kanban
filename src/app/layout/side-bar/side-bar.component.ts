@@ -4,7 +4,7 @@ import { ThemeService } from 'src/app/core/services/theme/theme.service';
 import { MatDialog } from '@angular/material/dialog';
 import { BoardService } from '../../core/services/board.service';
 import { Board } from '../../core/models/board.model';
-import { CreateBoardModalComponent } from 'src/app/core/modals/create-board-modal/create-board-modal.component';
+import { CreateBoardModalComponent } from '../board/create-board-modal/create-board-modal.component';
 
 @Component({
   selector: 'app-sidebar',

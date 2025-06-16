@@ -11,8 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { BoardService } from '../../core/services/board.service';
 import { Board } from '../../core/models/board.model';
 import { Column } from '../../core/models/column.model';
-import { DeleteModalComponent } from '../../core/modals/delete-modal/delete-modal.component';
-import { EditModalComponent } from '../../core/modals/edit-modal/edit-modal.component';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { AddNewTaskModalComponent } from 'src/app/core/modals/add-new-task-modal/add-new-task-modal.component';
 
 @Component({
